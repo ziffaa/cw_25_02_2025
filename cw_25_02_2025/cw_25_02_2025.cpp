@@ -10,7 +10,6 @@ int group, student;
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPTSTR lpszCmdLine, int nCmdShow)
 {
-    // создаём главное окно приложения на основе модального диалога
     return DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DlgProc);
 }
 
@@ -26,7 +25,6 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		return TRUE;
 
 	case WM_INITDIALOG:
-		// Получим дескрипторы элементов управления
 		hCombo = GetDlgItem(hWnd, IDC_COMBO1);
 		hList = GetDlgItem(hWnd, IDC_LIST1);
 		hEdit = GetDlgItem(hWnd, IDC_EDIT2);
@@ -34,7 +32,6 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		SendMessage(hRadio1, BM_SETCHECK, WPARAM(BST_CHECKED), 0);
 
-		// Добавляем времена года в ComboBox
 		SendMessage(hCombo, CB_ADDSTRING, 0, LPARAM(TEXT("GROUP1")));
 		SendMessage(hCombo, CB_ADDSTRING, 0, LPARAM(TEXT("GROUP2")));
 		return TRUE;
